@@ -139,7 +139,7 @@ The following points are my implementation/thoughts on how to adapt it to my nee
     ```sh
     talosctl apply-config --nodes 10.10.90.1 \
         --config-patch @controlplane-patch-common.yaml \
-        --config-patch @controlplane-patch-node1.yaml \
+        --config-patch @controlplane-patch-cp1.yaml \
         --file controlplane.yaml \
         --insecure
     ```
