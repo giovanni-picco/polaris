@@ -35,3 +35,7 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+talos-os/*.yaml
+talos-os/*.yml
+talos-os/talosconfig
