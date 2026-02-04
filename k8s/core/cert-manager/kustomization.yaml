@@ -5,4 +5,5 @@ resources:
   - 01-namespace.yaml
   - 02-helmrepository.yaml
   - 03-helmrelease.yaml
-  - issuer/
+  - 04-cloudflare-token.sops.yaml
+  - 05-clusterissuer.yaml
