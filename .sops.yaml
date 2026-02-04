@@ -1,0 +1,137 @@
+# ================================================================
+# SOPS Configuration for Polaris Homelab
+# ================================================================
+# This file defines how SOPS encrypts secrets in the repository
+# 
+# Public Key: age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+# 
+# Encryption Rules:
+# - Files matching patterns below will have their secrets encrypted
+# - Only 'data' and 'stringData' fields are encrypted (Kubernetes Secrets)
+# - Metadata, labels, and structure remain in plaintext for Git diffs
+# ================================================================
+
+creation_rules:
+  # ============================================================
+  # Core Infrastructure Secrets
+  # ============================================================
+  # Encrypt all secrets in the core infrastructure directory
+  - path_regex: kubernetes/core/.*/.*\.sops\.ya?ml$
+    encrypted_regex: ^(data|stringData)$
+    age: >-
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+
+  # ============================================================
+  # Application Secrets - Production
+  # ============================================================
+  # Production apps require the highest security
+  - path_regex: kubernetes/apps/production/.*\.sops\.ya?ml$
+    encrypted_regex: ^(data|stringData)$
+    age: >-
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+
+  # ============================================================
+  # Application Secrets - Development
+  # ============================================================
+  # Development apps (can use same key or different one for isolation)
+  - path_regex: kubernetes/apps/development/.*\.sops\.ya?ml$
+    encrypted_regex: ^(data|stringData)$
+    age: >-
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+
+  # ============================================================
+  # Application Secrets - Staging
+  # ============================================================
+  - path_regex: kubernetes/apps/staging/.*\.sops\.ya?ml$
+    encrypted_regex: ^(data|stringData)$
+    age: >-
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+
+  # ============================================================
+  # Dedicated Secrets Directories
+  # ============================================================
+  # Any file in a 'secrets' directory will be encrypted
+  - path_regex: kubernetes/.*/secrets/.*\.ya?ml$
+    encrypted_regex: ^(data|stringData)$
+    age: >-
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+
+
+  # ============================================================
+  # FluxCD System Secrets
+  # ============================================================
+  # Flux configuration secrets (excluding sops-age-secret.yaml itself)
+  - path_regex: kubernetes/flux-system/.*\.sops\.ya?ml$
+    encrypted_regex: ^(data|stringData)$
+    age: >- 
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+
+
+  # ============================================================
+  # Cluster Configuration Secrets
+  # ============================================================
+  # Cluster-wide secrets (certificates, external-dns, etc.)
+  - path_regex: clusters/polaris/.*\.sops\.ya?ml$
+    encrypted_regex: ^(data|stringData)$
+    age: >-
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+
+
+  # ============================================================
+  # Terraform Infrastructure Secrets
+  # ============================================================
+  # Terraform variable files that contain sensitive data
+  - path_regex: terraform/.*\.sops\.ya?ml$
+    encrypted_regex: ^(.*)?$
+    age: >-
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+
+
+  # ============================================================
+  # Generic .sops.yaml Files (Fallback)
+  # ============================================================
+  # Any file explicitly named with .sops.yaml extension
+  - path_regex: .*\.sops\.ya?ml$
+    encrypted_regex: ^(data|stringData)$
+    age: >-
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+
+# ================================================================
+# Notes:
+# ================================================================
+# 
+# 1. File Naming Convention:
+#    - Use .sops.yaml suffix for files containing secrets
+#    - Example: database-credentials.sops.yaml
+#    - Regular .yaml files will NOT be encrypted
+# 
+# 2. What Gets Encrypted:
+#    - Only the VALUES in 'data' and 'stringData' fields
+#    - Metadata (name, namespace, labels) stays in plaintext
+#    - This allows meaningful Git diffs
+# 
+# 3. Adding New Keys:
+#    - To add team members, append their Age public keys:
+#      age: >-
+#        age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy,
+#        age1anotherteammember...,
+# 
+# 4. Testing:
+#    - Test encryption: sops --encrypt test.sops.yaml
+#    - Test decryption: sops --decrypt test.sops.yaml
+#    - Edit encrypted: sops test.sops.yaml
+# 
+# 5. Environment Variables:
+#    - SOPS_AGE_KEY_FILE: Path to your Age private key
+#    - Default: ~/.config/sops/age/keys.txt
+# 
+# ================================================================
