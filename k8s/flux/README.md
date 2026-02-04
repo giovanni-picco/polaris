@@ -13,7 +13,7 @@ This is my personal implementation and understanding of the installation workflo
     export GITHUB_TOKEN=<gh-token>
     ```
 
-2. Install the Flux CLI by following the procedure described [here](https://fluxcd.io/flux/installation/#install-the-flux-cli).
+2. Install the Flux CLI by following the [official installation guide](https://fluxcd.io/flux/installation/#install-the-flux-cli).
 
 3. Run the `bootstrap` command. Example:
 
