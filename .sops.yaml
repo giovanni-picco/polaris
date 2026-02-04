@@ -19,7 +19,7 @@ creation_rules:
   - path_regex: kubernetes/core/.*/.*\.sops\.ya?ml$
     encrypted_regex: ^(data|stringData)$
     age: >-
-      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy,
       age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
 
   # ============================================================
@@ -29,7 +29,7 @@ creation_rules:
   - path_regex: kubernetes/apps/production/.*\.sops\.ya?ml$
     encrypted_regex: ^(data|stringData)$
     age: >-
-      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy,
       age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
 
   # ============================================================
@@ -39,7 +39,7 @@ creation_rules:
   - path_regex: kubernetes/apps/development/.*\.sops\.ya?ml$
     encrypted_regex: ^(data|stringData)$
     age: >-
-      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy,
       age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
 
   # ============================================================
@@ -48,7 +48,7 @@ creation_rules:
   - path_regex: kubernetes/apps/staging/.*\.sops\.ya?ml$
     encrypted_regex: ^(data|stringData)$
     age: >-
-      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy,
       age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
 
   # ============================================================
@@ -58,7 +58,7 @@ creation_rules:
   - path_regex: kubernetes/.*/secrets/.*\.ya?ml$
     encrypted_regex: ^(data|stringData)$
     age: >-
-      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy,
       age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
 
 
@@ -69,7 +69,7 @@ creation_rules:
   - path_regex: kubernetes/flux-system/.*\.sops\.ya?ml$
     encrypted_regex: ^(data|stringData)$
     age: >- 
-      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy,
       age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
 
 
@@ -80,7 +80,7 @@ creation_rules:
   - path_regex: clusters/polaris/.*\.sops\.ya?ml$
     encrypted_regex: ^(data|stringData)$
     age: >-
-      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy,
       age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
 
 
@@ -91,7 +91,7 @@ creation_rules:
   - path_regex: terraform/.*\.sops\.ya?ml$
     encrypted_regex: ^(.*)?$
     age: >-
-      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy,
       age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
 
 
@@ -102,7 +102,7 @@ creation_rules:
   - path_regex: .*\.sops\.ya?ml$
     encrypted_regex: ^(data|stringData)$
     age: >-
-      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy
+      age17fa9xasl062yz7wuegpzzpl0mwv7j0ugaqt0xdyc0vg8mker546s9apphy,
       age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
 
 # ================================================================
