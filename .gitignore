@@ -36,6 +36,9 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+#SOPS
+sops.secret.yaml
+
 #talos
 talos/*
 !talos/README.md

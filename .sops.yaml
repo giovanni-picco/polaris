@@ -1,0 +1,61 @@
+# ================================================================
+# SOPS Configuration for Polaris Homelab
+# ================================================================
+# This file defines how SOPS encrypts secrets in the repository
+# 
+# Public Key: age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+# 
+# Encryption Rules:
+# - Files matching patterns below will have their secrets encrypted
+# - Only 'data' and 'stringData' fields are encrypted (Kubernetes Secrets)
+# - Metadata, labels, and structure remain in plaintext for Git diffs
+# ================================================================
+
+creation_rules:
+
+  # ============================================================
+  # Generic Secrets Files
+  # ============================================================
+  # Any file in a 'secrets' directory will be encrypted
+  - path_regex: .*\.secrets\.ya?ml$
+    encrypted_regex: ^(data|stringData)$
+    age: age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+
+  # ============================================================
+  # Generic .sops.yaml Files
+  # ============================================================
+  # Any file explicitly named with .sops.yaml extension
+  - path_regex: .*\.sops\.ya?ml$
+    encrypted_regex: ^(data|stringData)$
+    age: age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+
+# ================================================================
+# Notes:
+# ================================================================
+# 
+# 1. File Naming Convention:
+#    - Use .sops.yaml suffix for files containing secrets
+#    - Example: database-credentials.sops.yaml
+#    - Regular .yaml files will NOT be encrypted
+# 
+# 2. What Gets Encrypted:
+#    - Only the VALUES in 'data' and 'stringData' fields
+#    - Metadata (name, namespace, labels) stays in plaintext
+#    - This allows meaningful Git diffs
+# 
+# 3. Adding New Keys:
+#    - To add team members, append their Age public keys:
+#      age: >-
+#        age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d,
+#        age1anotherteammember...,
+# 
+# 4. Testing:
+#    - Test encryption: sops --encrypt test.sops.yaml
+#    - Test decryption: sops --decrypt test.sops.yaml
+#    - Edit encrypted: sops test.sops.yaml
+# 
+# 5. Environment Variables:
+#    - SOPS_AGE_KEY_FILE: Path to your Age private key
+#    - Default: ~/.config/sops/age/keys.txt
+# 
+# ================================================================
