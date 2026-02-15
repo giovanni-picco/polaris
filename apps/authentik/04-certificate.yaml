@@ -1,0 +1,14 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: authentik-certificate
+  namespace: authentik
+spec:
+  secretName: authentik-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: sso.${CLUSTER_DOMAIN}
+  dnsNames:
+    - sso.${CLUSTER_DOMAIN}

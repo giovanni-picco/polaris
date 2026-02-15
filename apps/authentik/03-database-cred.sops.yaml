@@ -1,0 +1,22 @@
+apiVersion: v1
+data:
+    password: ENC[AES256_GCM,data:LUY6Qp32JdytippDr7e1eX7+FxRVs5lEnH8XWsUnSM5813fHFHOkryVAhsSbSwg0HKu7EQPImk28aDFpp7ILV9ULYU7eo5zkhVy2Sd7BsysVfXRmtwhq6teKCJC+SQV8bDbEgat0TBJCqB8g8Wu6KKBfGEqSAUoI,iv:V7ohanGdJfsjl5N0NoDewznC9MlkVnps3FXhBhsJa88=,tag:TOg9wcSbyY2pTTb3IJeoxw==,type:str]
+    postgres-password: ENC[AES256_GCM,data:6eFhsnpFjXKqhXoVN7lr2yv3SQ0L/iyYvQEkiN39VYe64DmABxVbb6oX1wf8cjP4xvo3D65R+xrROCbdjPXnYhACEVUuJfKFjejIU1IAEII7ywA9JZAXj4104LQ82/dR8G3RgwKHoBBarGXeaagonFNFC70keSZM,iv:JTAsoQcu+Yx0DnoXH5IRXUs0q72cFaLBz4pxHvKh1wA=,tag:AxYVQ7KPjFgTge4YSXI0pw==,type:str]
+kind: Secret
+metadata:
+    name: database-cred
+sops:
+    age:
+        - recipient: age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBvK0ozOVNFeVUwR0pyQmRY
+            NE93eks4VGtRM1Vjekd4SlZvVUZQa2svVGlNCnFHdk9SQjhrd3NFZzJPMnRZRm1a
+            aXNaRWNXbXNJSVpKaTNYTGZVY2NsM2MKLS0tIEFrV3B1WTUxaTVGRkEwd0xkNnVW
+            UHZXWi9veWI3eFI3OFVocjhQSmlqemcKuDaxSnnmtlrsHuHLb4hqMB/E2qtCgnko
+            aDSC6058R7/dGi4BwrEemr04MM1uffm+AIvbd9ddKhpsQLjSoUxPqw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-02-15T19:50:43Z"
+    mac: ENC[AES256_GCM,data:Wr/rLPf9GySW7/hHc4jKtA0hsI0z1sjSlRYsP35NLdU17voXInfGTIjqnPfTnYpPVBj+Gfbo0TTlHhKX1c8/OIce6bEWZiLTDn8yozHMF/O9KhK82ILoL8WjGmLGRRF6UPw9jyUv21teLqBqXbHYEtEvOGrCHOVKlbFBU2JZZ+k=,iv:503vHjc+hiAqci90E2LzOibKQH1W17Ujac3yTNbS8FQ=,tag:nZq5HL8KaNnP9nLQlcILAw==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    version: 3.11.0

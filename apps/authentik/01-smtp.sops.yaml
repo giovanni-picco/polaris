@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: authentik-smtp-credentials
+    namespace: authentik
+type: Opaque
+stringData:
+    username: ENC[AES256_GCM,data:71zA9D9R1lNhNpckwg4EGN9jNrBz+ndw,iv:/J48oXDqHuBz0VEl6EopW08FbAmFb1sn86jtPvjUXXc=,tag:ZphJ0wDpYRK/FV5L04lGuA==,type:str]
+    password: ENC[AES256_GCM,data:kTkBgST1BD1I5BaXpz1t1NSSj9rqDniv6/NsjIidbHSEcuplUsTMNFdNadsoZXQsHWV3DXPL8zYco9pntN+NU8q67RQepL94eOPZTu4XePTlMiq2KqxSkrCy,iv:0Yld0P1MDpqoIYWqUvtwzz7T2tmU0X+b8q0eg9AoVko=,tag:OJh/Dr+jJCxJn767g4i8PQ==,type:str]
+sops:
+    age:
+        - recipient: age15n60jma8mrj5h7sqnal4lvlsn9usd0ceju0ked4t0mgewt8n6c7qtezm3d
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBRZGd2VHkvRUJHSSsyMlV5
+            cEdmc0NuWDJvOHNiWGw0V2ExWEtjVk5UZ0RjCmc0RlhqZmJjU1dXcUV4NUJBblRn
+            S2pDeUdWa2IrajdwUlBrVENvVFcxMncKLS0tIFJoSjRObHN5TEhHMWc2MUZMNWtI
+            ak1wNUtNc1NUL1dYMTdvQ2w5WksyVVEKzcRtADO06TiRiIJosKYIbDoDuOVq/ND1
+            4HE1vrDWXkauAirrZ/WDhKERNVrvZzQMVW8WTQ34thW9ax97yyBWng==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-02-15T20:10:39Z"
+    mac: ENC[AES256_GCM,data:2DQ1L9rewxsGdios0kX3CFe5ovoyjNeygtC6F5+DlAqHSF+BAp0nfl6nO2AVbrWgkeCnU+LgYLD3eS15W1QjFFdQe+XpO0NF/kGMxAlRkr1iDXz4/8SRFzTpeS66JpPmSTaWCi5L9yp57VOXc0hyV/Oh3jLfxj6kyN/eInazl0o=,iv:tDQuUR7cWGHgrvO6OiRZCltj+huPAOASFfLj8HzcXqo=,tag:p3zcGR/HthXuvIj+56hogg==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    version: 3.11.0
