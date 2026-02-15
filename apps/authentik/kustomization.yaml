@@ -3,8 +3,8 @@ kind: Kustomization
 resources:
   - ./00-namespace.yaml
   - ./01-smtp.sops.yaml
-  - ./02-certificate.yaml
-  - ./03-secret-key.sops.yaml
-  - ./04-database-cred.sops.yaml
+  - ./02-secret-key.sops.yaml
+  - ./03-database-cred.sops.yaml
+  - ./04-certificate.yaml
   - ./05-helm-repository.yaml
   - ./06-helm-release.yaml
