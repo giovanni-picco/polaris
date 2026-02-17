@@ -7,9 +7,6 @@ metadata:
 spec:
   dependsOn:
     - name: infrastructure
-    - name: cert-manager
-    - name: traefik
-    - name: longhorn
   interval: 1h
   retryInterval: 1m
   timeout: 5m
