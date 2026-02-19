@@ -7,6 +7,7 @@ resources:
   - metallb/ks.yaml
   - traefik/ks.yaml
   - longhorn/ks.yaml
+  - intel/ks.yaml
   # Configs (dipendono dai rispettivi controller)
   - cert-manager-config/ks.yaml
   - metallb-config/ks.yaml
