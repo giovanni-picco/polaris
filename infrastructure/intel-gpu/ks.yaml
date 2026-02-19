@@ -2,15 +2,17 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: intel
+  name: intel-nfd
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: intel-nfd
   interval: 1h
   retryInterval: 1m
   timeout: 5m
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infrastructure/intel
+  path: ./infrastructure/intel-nfd
   prune: true
   wait: false
