@@ -18,20 +18,6 @@ spec:
       labels:
         app: bazarr
     spec:
-      initContainers:
-        - name: wait-for-vpn
-          image: busybox:latest
-          command:
-            - sh
-            - -c
-            - |
-              until ip link show tun0 > /dev/null 2>&1; do
-                echo "Waiting for VPN tunnel..."; sleep 2;
-              done
-          securityContext:
-            capabilities:
-              add: ["NET_ADMIN"]
-
       containers:
         # ---- SIDECAR: gluetun ----
         - name: gluetun
