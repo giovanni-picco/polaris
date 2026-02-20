@@ -6,4 +6,4 @@ metadata:
 data:
   VERSION: "docker"
   TZ: "Europe/Rome"
-  PLEX_CLAIM: "claim-AZvW9ebNVdzb46YtQN-z"  # https://www.plex.tv/claim
+  PLEX_CLAIM: "claim-yAarVsib3T9NLtTCzXpP"  # https://www.plex.tv/claim
