@@ -51,6 +51,8 @@ spec:
               value: "4h"
             - name: SERVER_COUNTRIES
               value: "Italy,Germany,France,Netherlands,Switzerland,Spain"
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
           ports:
             - containerPort: 6881
               name: bittorrent-tcp

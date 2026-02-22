@@ -49,6 +49,8 @@ spec:
               value: "4h"
             - name: SERVER_COUNTRIES
               value: "Italy,Germany,France,Netherlands,Switzerland,Spain"
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
           volumeMounts:
             - name: gluetun-config
               mountPath: /gluetun
@@ -68,10 +70,6 @@ spec:
           env:
             - name: TZ
               value: "Europe/Rome"
-            - name: SONARR__AUTH__ENABLED
-              value: "false"
-            - name: SONARR__AUTH__REQUIRED
-              value: "false"
           ports:
             - containerPort: 8989
               name: http
@@ -87,7 +85,6 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "300m"
-
       volumes:
         - name: gluetun-config
           persistentVolumeClaim:
