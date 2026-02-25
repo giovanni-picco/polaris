@@ -85,7 +85,7 @@ spec:
       volumes:
         - name: gluetun-config
           persistentVolumeClaim:
-            claimName: pvc-config-gluetun
+            claimName: pvc-config-gluetun-prowlarr
         - name: prowlarr-config
           persistentVolumeClaim:
             claimName: pvc-config-prowlarr

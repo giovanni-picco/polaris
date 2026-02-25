@@ -104,7 +104,7 @@ spec:
       volumes:
         - name: gluetun-config
           persistentVolumeClaim:
-            claimName: pvc-config-gluetun
+            claimName: pvc-config-gluetun-qbittorrent
         - name: qbittorrent-config
           persistentVolumeClaim:
             claimName: pvc-config-qbittorrent

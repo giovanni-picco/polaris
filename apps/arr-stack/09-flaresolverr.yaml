@@ -80,7 +80,7 @@ spec:
       volumes:
         - name: gluetun-config
           persistentVolumeClaim:
-            claimName: pvc-config-gluetun
+            claimName: pvc-config-gluetun-flaresolverr
         - name: dev-tun
           hostPath:
             path: /dev/net/tun
