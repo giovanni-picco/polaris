@@ -19,18 +19,11 @@
   "commitMessageTopic": "{{depName}} to {{newVersion}}",
   "prConcurrentLimit": 3,
   "prCreation": "not-pending",
-  "semanticCommits": "enabled",
-
+  
   "automerge": false,
   "automergeType": "pr",
   "automergeStrategy": "squash",
-
-  "grouping": {
-    "enabled": true,
-    "default": "patch",
-    "minor": "patch",
-    "patch": "patch"
-  },
+  
   "packageRules": [
     {
       "description": "Group patch updates of same package",
@@ -58,9 +51,6 @@
   "docker": {
     "enabled": true,
     "automerge": false,
-    "major": {
-      "enabled": true
-    }
   },
   "dockerCompose": {
     "enabled": false
