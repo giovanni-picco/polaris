@@ -82,10 +82,6 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-      volumes:
-        - name: gluetun-config
-          persistentVolumeClaim:
-            claimName: pvc-config-gluetun-flaresolverr
 ---
 apiVersion: v1
 kind: Service
