@@ -27,7 +27,7 @@ spec:
               add: ["NET_ADMIN"]
           envFrom:
             - configMapRef:
-                name: gluetun-configmap-openvpn
+                name: gluetun-configmap
           env:
             - name: VPN_TYPE
               value: "openvpn"
