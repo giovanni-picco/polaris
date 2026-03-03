@@ -14,4 +14,4 @@ spec:
           port: 5055
           scheme: http
   tls:
-    secretName: overseerr-tls
+    secretName: seerr-tls

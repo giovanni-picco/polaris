@@ -5,7 +5,7 @@ metadata:
   name: seerr-certificate
   namespace: seerr
 spec:
-  secretName: sseerr-tls
+  secretName: seerr-tls
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
