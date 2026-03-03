@@ -21,17 +21,15 @@ Polaris is a production-grade homelab environment designed for learning, experim
 ┌────────────────────────────────────────────────────────┐
 │                   Polaris Homelab                      │
 ├────────────────────────────────────────────────────────┤
-│                                                        │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
-│  │  polaris-m01 │  │  polaris-m02 │  │  polaris-m03 │  │
-│  │   (Master)   │  │   (Master)   │  │   (Master)   │  │
+│  │      m01     │  │      m02     │  │      m03     │  │
+|  |   (Master)   │  │   (Master)   │  │   (Master)   │  │
+|  |    Active    |  |   Inactive   |  |   Inactive   |  |
 │  │   Talos OS   │  │   Talos OS   │  │   Talos OS   │  │
 │  └──────────────┘  └──────────────┘  └──────────────┘  │
-│                                                        │
 │  ┌──────────────────────────────────────────────────┐  │
 │  │         Kubernetes Cluster (v1.35.0)             │  │
 │  └──────────────────────────────────────────────────┘  │
-│                                                        │
 │  ┌──────────────────────────────────────────────────┐  │
 │  │  FluxCD GitOps Engine                            │  │
 │  │  ├─ Source Controller                            │  │
@@ -39,7 +37,6 @@ Polaris is a production-grade homelab environment designed for learning, experim
 │  │  ├─ Helm Controller                              │  │
 │  │  └─ Notification Controller                      │  │
 │  └──────────────────────────────────────────────────┘  │
-│                                                        │
 └────────────────────────────────────────────────────────┘
 ```
 
@@ -62,9 +59,9 @@ Polaris is a production-grade homelab environment designed for learning, experim
 
 - [x] Basic Kubernetes cluster with Talos OS
 - [x] FluxCD GitOps setup
-- [ ] SOPS Secrets
-- [ ] Install core component (MetalLB, Longhorn, cert-manager, Traefik)
-- [ ] Configure Renovate
+- [x] SOPS Secrets
+- [x] Install core component (MetalLB, Longhorn, cert-manager, Traefik)
+- [x] Configure Renovate
 - [ ] Monitoring stack (Prometheus + Grafana)
 - [ ] High availability setup (3 master nodes)
 - [ ] Migrate to External secrets operator integration
@@ -85,4 +82,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Polaris Homelab** - *Where Infrastructure Meets Innovation* ⭐
 
-Last updated: 2026-02-02
+Last updated: 2026-03-03
