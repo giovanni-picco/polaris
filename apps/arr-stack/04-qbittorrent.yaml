@@ -1,9 +1,4 @@
 ---
-# ============================================================
-# QBITTORRENT — Deployment con gluetun sidecar
-# Nota: qBittorrent è il servizio più critico da proteggere
-# con VPN — è l'unico che apre porte di ascolto P2P (6881).
-# ============================================================
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -24,7 +19,6 @@ spec:
         app: qbittorrent
     spec:
       containers:
-        # ---- SIDECAR: gluetun ----
         - name: gluetun
           image: qmcgaw/gluetun:v3.41.1
           securityContext:
@@ -35,19 +29,24 @@ spec:
             - configMapRef:
                 name: gluetun-configmap-wireguard
           env:
-            - name: FIREWALL_INPUT_PORTS
-              value: "8080,6881"
+            - name: VPN_TYPE
+              value: "wireguard"
+            - name: WIREGUARD_ADDRESSES
+              value: "10.5.0.2/32"
             - name: WIREGUARD_PRIVATE_KEY
               valueFrom:
                 secretKeyRef:
                   name: gluetun-secret
                   key: WIREGUARD_SECRET
+            - name: FIREWALL_INPUT_PORTS
+              value: "8080,6881"
+          restartPolicy: Always
           readinessProbe:
             exec:
               command:
                 - sh
                 - -c
-                - "ping -c 1 https://google.it/"
+                - "ping -c 1 $(echo $WIREGUARD_ADDRESSES | cut -d'/' -f1)"
             initialDelaySeconds: 5
             periodSeconds: 3
             timeoutSeconds: 2
@@ -57,7 +56,11 @@ spec:
               command:
                 - sh
                 - -c
-                - "ping -c 1 https://google.it/"
+                - "ping -c 1 $(echo $WIREGUARD_ADDRESSES | cut -d'/' -f1)"
+            initialDelaySeconds: 10
+            periodSeconds: 15
+            timeoutSeconds: 2
+            failureThreshold: 3
           resources:
             requests:
               memory: "64Mi"
@@ -65,13 +68,11 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "200m"
-
-        # ---- MAIN: qbittorrent ----
         - name: qbittorrent
           image: lscr.io/linuxserver/qbittorrent:5.1.4
           env:
           - name: TZ
-            value: US/Mountain
+            value: Europe/Rome
           - name: PUID
             value: "1000"
           - name: PGID

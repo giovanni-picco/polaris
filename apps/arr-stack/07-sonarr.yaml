@@ -1,7 +1,4 @@
 ---
-# ============================================================
-# SONARR — Deployment con gluetun sidecar
-# ============================================================
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,10 +24,6 @@ spec:
           env:
             - name: TZ
               value: "Europe/Rome"
-            - name: SONARR__AUTH__AUTHENTICATIONREQUIRED
-              value: "Enabled"
-            - name: SONARR__AUTH__AUTHENTICATIONMETHOD
-              value: "External"
           ports:
             - containerPort: 8989
               name: http

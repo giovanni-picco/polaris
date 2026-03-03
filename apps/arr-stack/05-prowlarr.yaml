@@ -19,7 +19,6 @@ spec:
         app: prowlarr
     spec:
       containers:
-        # ---- SIDECAR: gluetun ----
         - name: gluetun
           image: qmcgaw/gluetun:v3.41.1
           securityContext:
@@ -30,8 +29,8 @@ spec:
             - configMapRef:
                 name: gluetun-configmap-openvpn
           env:
-            - name: FIREWALL_INPUT_PORTS
-              value: "9696"
+            - name: VPN_TYPE
+              value: "openvpn"
             - name: OPENVPN_USER
               valueFrom:
                 secretKeyRef:
@@ -42,12 +41,15 @@ spec:
                 secretKeyRef:
                   name: gluetun-secret
                   key: OPENVPN_PASSWORD
+            - name: FIREWALL_INPUT_PORTS
+              value: "9696"
+          restartPolicy: Always
           readinessProbe:
             exec:
               command:
                 - sh
                 - -c
-                - "ping -c 1 https://google.it/"
+                - "ping -c 1 $(echo $WIREGUARD_ADDRESSES | cut -d'/' -f1)"
             initialDelaySeconds: 5
             periodSeconds: 3
             timeoutSeconds: 2
@@ -57,7 +59,7 @@ spec:
               command:
                 - sh
                 - -c
-                - "ping -c 1 https://google.it/"
+                - "ping -c 1 $(echo $WIREGUARD_ADDRESSES | cut -d'/' -f1)"
             initialDelaySeconds: 10
             periodSeconds: 15
             timeoutSeconds: 2
@@ -69,16 +71,11 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "200m"
-        # ---- MAIN: prowlarr ----
         - name: prowlarr
           image: ghcr.io/hotio/prowlarr:release-2.3.0.5236
           env:
             - name: TZ
               value: "Europe/Rome"
-            - name: PROWLARR__AUTH__AUTHENTICATIONREQUIRED
-              value: "Enabled"
-            - name: PROWLARR__AUTH__AUTHENTICATIONMETHOD
-              value: "External"
           ports:
             - containerPort: 9696
               name: http

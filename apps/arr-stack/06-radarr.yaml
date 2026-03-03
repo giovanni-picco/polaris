@@ -24,10 +24,6 @@ spec:
           env:
             - name: TZ
               value: "Europe/Rome"
-            - name: RADARR__AUTH__AUTHENTICATIONREQUIRED
-              value: "Enabled"
-            - name: RADARR__AUTH__AUTHENTICATIONMETHOD
-              value: "External"
           ports:
             - containerPort: 7878
               name: http
