@@ -14,6 +14,13 @@ spec:
         app: seerr
     spec:
       shareProcessNamespace: true
+      initContainers:
+        - name: fix-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R 1000:1000 /app/config && chmod -R 775 /app/config"]
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
       containers:
         - name: seerr
           image: ghcr.io/seerr-team/seerr:develop
