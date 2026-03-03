@@ -10,7 +10,7 @@ spec:
     - match: Host(`seerr.${CLUSTER_DOMAIN}`)
       kind: Rule
       services:
-        - name: overseerr
+        - name: seerr
           port: 5055
           scheme: http
   tls:
