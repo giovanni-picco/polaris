@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - ./authentik/ks.yaml
   - ./arr-stack/ks.yaml
-  - ./seerr/ks.yaml
+  # - ./seerr/ks.yaml
   - ./plex/ks.yaml
 
 patches:
