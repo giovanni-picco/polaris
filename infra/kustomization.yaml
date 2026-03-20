@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ./cilium
   - ./external-secrets
+  - ./bitwarden-secret-manager
 
 patches:
   - target:
