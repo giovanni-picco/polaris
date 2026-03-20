@@ -13,3 +13,6 @@ spec:
   dependsOn:
     - name: config
     - name: external-secrets
+  substituteFrom:
+    - kind: Secret
+      name: bitwarden
