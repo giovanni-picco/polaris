@@ -13,6 +13,7 @@ spec:
   dependsOn:
     - name: config
     - name: infra-external-secrets
-  substituteFrom:
-    - kind: Secret
-      name: bitwarden
+  postBuild:
+    substituteFrom:
+      - kind: Secret
+        name: bitwarden
