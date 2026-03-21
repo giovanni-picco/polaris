@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - ./cilium
   - ./cert-manager
+  - ./selfsigned-issuer
   - ./external-secrets
   - ./bitwarden-secret-manager
