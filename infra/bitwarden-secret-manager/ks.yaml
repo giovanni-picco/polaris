@@ -11,9 +11,7 @@ spec:
     kind: GitRepository
     name: bitwarden-secret-manager
   dependsOn:
-    - name: config
-    - name: infra-cert-manager
-    - name: infra-external-secrets
+    - name: infra-bitwarden-sdk-server
   postBuild:
     substituteFrom:
       - kind: ConfigMap
