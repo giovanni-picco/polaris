@@ -15,5 +15,7 @@ spec:
     - name: infra-external-secrets
   postBuild:
     substituteFrom:
+      - kind: ConfigMap
+        name: cluster-vars
       - kind: Secret
         name: bitwarden

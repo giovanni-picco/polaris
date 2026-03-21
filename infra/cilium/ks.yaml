@@ -12,3 +12,7 @@ spec:
     name: cilium
   dependsOn:
     - name: config
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: cluster-vars
