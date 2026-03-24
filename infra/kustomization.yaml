@@ -8,5 +8,6 @@ resources:
   - ./letsencrypt-issuer
   - ./traefik
   - ./longhorn
+  - ./volume-backups
   - ./node-feature-discovery
   - ./intel-gpu
