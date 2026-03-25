@@ -11,7 +11,6 @@ spec:
     kind: GitRepository
     name: traefik
   dependsOn:
-    - name: config
     - name: infra-cilium
     - name: infra-letsencrypt-issuer
     - name: infra-external-secrets

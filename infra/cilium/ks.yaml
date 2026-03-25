@@ -10,8 +10,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: cilium
-  dependsOn:
-    - name: config
   postBuild:
     substituteFrom:
       - kind: ConfigMap
