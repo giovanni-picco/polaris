@@ -36,9 +36,6 @@ nodes:
         dhcp: true
         vip:
           ip: 10.10.5.10
-        vlans:
-          - vlanId: 6
-            dhcp: true
 
   # ─────────────────────────────────────────────
   # CONTROLPLANE 2 — PCP-02 (HP ProDesk 400 G2)
@@ -52,9 +49,6 @@ nodes:
         dhcp: true
         vip:
           ip: 10.10.5.10
-        vlans:
-          - vlanId: 6
-            dhcp: true
 
   # ─────────────────────────────────────────────
   # CONTROLPLANE 3 — PCP-03 (HP ProDesk 400 G2)
@@ -68,9 +62,6 @@ nodes:
         dhcp: true
         vip:
           ip: 10.10.5.10
-        vlans:
-          - vlanId: 6
-            dhcp: true
 
   # ─────────────────────────────────────────────
   # WORKER 1 — PWR-01 (Minisforum MS-01)
@@ -91,9 +82,6 @@ nodes:
           interfaces:
             - enp87s0
             - enp89s0
-        vlans:
-          - vlanId: 6
-            dhcp: true
 
   # ─────────────────────────────────────────────
   # WORKER 2 — PWR-02 (Minisforum MS-01)
@@ -114,9 +102,6 @@ nodes:
           interfaces:
             - enp87s0
             - enp89s0
-        vlans:
-          - vlanId: 6
-            dhcp: true
 
 # ─────────────────────────────────────────────
 # PATCH CONTROLPLANE
